@@ -1,3 +1,18 @@
+cc_library_headers {
+    name: "libfl-exported-headers",
+    export_include_dirs: ["exported_headers"],
+}
+
+cc_library_static {
+    name: "libfl",
+    srcs: [
+        "libmain.c",
+        "libyywrap.c",
+    ],
+    header_libs: ["libfl-exported-headers"],
+    export_header_lib_headers: ["libfl-exported-headers"],
+}
+
 cc_binary_host {
     // Not named "flex" because we need the flex module to build scan.l below,
     // and we don't support dependency loops. The stem renames this back to
