@@ -57,13 +57,14 @@ cc_binary_host {
 genrule {
     name: "flex_skel.c",
     // This is lightly modified from Makefile.am
-    cmd: "/bin/bash $(location mkskel.sh) `dirname $(in)` m4 2.6.4 >$(out)",
+    cmd: "/bin/bash $(location mkskel.sh) `dirname $(in)` $(location m4) 2.6.4 >$(out)",
     tool_files: [
         "mkskel.sh",
         "flexint.h",
         "tables_shared.c",
         "tables_shared.h",
     ],
+    tools: ["m4"],
     srcs: [
         "flex.skl",
     ],
