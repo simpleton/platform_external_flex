@@ -1,9 +1,5 @@
 cc_binary_host {
-    // Not named "flex" because we need the flex module to build scan.l below,
-    // and we don't support dependency loops. The stem renames this back to
-    // 'flex' in the installed path
-    name: "flex_bin",
-    stem: "flex",
+    name: "flex",
 
     stl: "none",
     srcs: [
